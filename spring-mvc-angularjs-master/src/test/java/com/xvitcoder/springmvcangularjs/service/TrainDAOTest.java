@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.xvitcoder.springmvcangularjs.beans.Train;
+import com.xvitcoder.springmvcangularjs.dao.TrainDAO;
 
 public class TrainDAOTest {
 

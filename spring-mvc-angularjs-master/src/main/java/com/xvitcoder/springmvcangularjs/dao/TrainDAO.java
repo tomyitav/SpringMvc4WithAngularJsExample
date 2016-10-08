@@ -1,4 +1,4 @@
-package com.xvitcoder.springmvcangularjs.service;
+package com.xvitcoder.springmvcangularjs.dao;
 
 import org.mongodb.morphia.Morphia;
 import org.mongodb.morphia.dao.BasicDAO;

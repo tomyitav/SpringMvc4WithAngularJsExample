@@ -2,10 +2,14 @@ package com.xvitcoder.springmvcangularjs.service;
 
 import java.util.List;
 
+import org.mongodb.morphia.Datastore;
+import org.mongodb.morphia.query.Query;
 import org.mongodb.morphia.query.QueryResults;
+import org.mongodb.morphia.query.UpdateOperations;
 import org.springframework.stereotype.Component;
 
 import com.xvitcoder.springmvcangularjs.beans.Train;
+import com.xvitcoder.springmvcangularjs.dao.TrainDAO;
 
 @Component("trainMongoService")
 public class TrainMongoService implements TrainService{
@@ -45,7 +49,11 @@ public class TrainMongoService implements TrainService{
 	@Override
 	public void updateTrain(Train train) {
 		// TODO Auto-generated method stub
-		
+		Datastore ds = dao.getDatastore();
+		Query<Train> query = ds.createQuery(Train.class).field("id").equal(train.getId());
+		UpdateOperations<Train> ops = ds.createUpdateOperations(Train.class).set("name", train.getName()).set("speed", train.getSpeed()).set("diesel", train.getDiesel());
+
+		ds.update(query, ops);
 	}
 	
 
