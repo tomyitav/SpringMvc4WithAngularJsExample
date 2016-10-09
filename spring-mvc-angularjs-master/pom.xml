@@ -8,6 +8,13 @@
     <name>AngularSpringApp Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
+    
+    	<!-- Spring Data for MongoDB-->
+    <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-mongodb</artifactId>
+        <version>1.9.4.RELEASE</version>
+    </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -51,11 +58,13 @@
         	<artifactId>mongo-java-driver</artifactId>
         	<version>3.3.0</version>
         </dependency>
+        <!-- Spring Data for MongoDB
         <dependency>
 		    <groupId>org.mongodb.morphia</groupId>
 		    <artifactId>morphia</artifactId>
 		    <version>1.2.0</version>
 		</dependency>
+		-->
     </dependencies>
     <build>
         <finalName>spring-mvc-angularjs</finalName>

@@ -1,7 +1,8 @@
 package com.xvitcoder.springmvcangularjs.beans;
 
-import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,7 +10,7 @@ import org.mongodb.morphia.annotations.Id;
  * Date: 12/21/12
  * Time: 12:19 AM
  */
-@Entity
+@Document(collection="Train")
 public class Train {
 	
 	@Id

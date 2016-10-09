@@ -1,6 +1,7 @@
 package com.xvitcoder.springmvcangularjs.controller;
 
 import com.xvitcoder.springmvcangularjs.beans.Train;
+import com.xvitcoder.springmvcangularjs.service.TrainRepository;
 import com.xvitcoder.springmvcangularjs.service.TrainService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,33 +22,37 @@ import java.util.List;
 @RequestMapping("/trains")
 public class TrainController {
 
+//    @Autowired
+//    @Qualifier("trainMongoService")
+//    private TrainService trainService;
+    
     @Autowired
-    @Qualifier("trainMongoService")
-    private TrainService trainService;
+    private TrainRepository repository;
 
     @RequestMapping("trainslist.json")
     public @ResponseBody List<Train> getTrainList() {
-        return trainService.getAllTrains();
+//        return trainService.getAllTrains();
+    	return repository.findAll();
     }
 
     @RequestMapping(value = "/addTrain", method = RequestMethod.POST)
     public @ResponseBody void addTrain(@RequestBody Train train) {
-        trainService.addTrain(train);
+        repository.save(train);
     }
 
     @RequestMapping(value = "/updateTrain", method = RequestMethod.PUT)
     public @ResponseBody void updateTrain(@RequestBody Train train) {
-        trainService.updateTrain(train);
+        repository.save(train);
     }
 
     @RequestMapping(value = "/removeTrain/{id}", method = RequestMethod.DELETE)
     public @ResponseBody void removeTrain(@PathVariable("id") Long id) {
-        trainService.deleteTrainById(id);
+//        repository.delete(arg0);
     }
 
     @RequestMapping(value = "/removeAllTrains", method = RequestMethod.DELETE)
     public @ResponseBody void removeAllTrains() {
-        trainService.deleteAll();
+        repository.deleteAll();
     }
 
     @RequestMapping("/layout")
