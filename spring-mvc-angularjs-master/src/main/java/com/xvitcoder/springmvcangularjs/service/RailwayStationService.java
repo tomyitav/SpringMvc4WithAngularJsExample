@@ -9,11 +9,11 @@ public interface RailwayStationService {
 	
     public List<RailwayStation> getAllRailwayStations();
 
-    public RailwayStation getRailwayStationById(Long id);
+    public RailwayStation getRailwayStationById(String id);
 
     public void addRailwayStation(RailwayStation RailwayStation);
 
-    public void deleteRailwayStationById(Long id);
+    public void deleteRailwayStationById(String id);
 
     public void deleteAll();
 

@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.xvitcoder.springmvcangularjs.beans.RailwayStation;
-import com.xvitcoder.springmvcangularjs.service.RailwayStationServiceImpl;
+import com.xvitcoder.springmvcangularjs.service.RailwayStationService;
 
 @Controller
 @RequestMapping("/railwaystations")
 public class RailwayStationController {
 
     @Autowired
-    private RailwayStationServiceImpl railwayStationsService;
+    private RailwayStationService railwayStationsService;
 
     @RequestMapping("railwaystationlist.json")
     public @ResponseBody List<RailwayStation> getRailwayStationList() {
@@ -37,7 +37,7 @@ public class RailwayStationController {
     }
 
     @RequestMapping(value = "/remove/{id}", method = RequestMethod.DELETE)
-    public @ResponseBody void removeRailwayStation(@PathVariable("id") Long id) {
+    public @ResponseBody void removeRailwayStation(@PathVariable("id") String id) {
         railwayStationsService.deleteRailwayStationById(id);
     }
 
