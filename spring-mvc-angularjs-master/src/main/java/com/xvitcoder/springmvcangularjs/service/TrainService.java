@@ -13,11 +13,11 @@ import java.util.List;
 public interface TrainService {
     public List<Train> getAllTrains();
 
-    public Train getTrainById(Long id);
+    public Train getTrainById(String id);
 
     public void addTrain(Train train);
 
-    public void deleteTrainById(Long id);
+    public void deleteTrainById(String id);
 
     public void deleteAll();
 

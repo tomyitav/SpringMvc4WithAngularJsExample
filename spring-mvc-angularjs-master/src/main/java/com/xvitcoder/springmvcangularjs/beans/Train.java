@@ -1,6 +1,5 @@
 package com.xvitcoder.springmvcangularjs.beans;
 
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Train {
 	
 	@Id
-    private Long id;
+    private String id;
 	
     private String name;
     private Integer speed;
@@ -22,18 +21,18 @@ public class Train {
 
     public Train() { }
 
-    public Train(Long id, String name, Integer speed, Boolean diesel) {
+    public Train(String id, String name, Integer speed, Boolean diesel) {
         this.id = id;
         this.name = name;
         this.speed = speed;
         this.diesel = diesel;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

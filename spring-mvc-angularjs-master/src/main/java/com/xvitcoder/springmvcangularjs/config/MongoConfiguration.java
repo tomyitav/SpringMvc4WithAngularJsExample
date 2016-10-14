@@ -19,7 +19,7 @@ import java.util.Arrays;
 public class MongoConfiguration  extends AbstractMongoConfiguration {
     @Override
     protected String getDatabaseName() {
-        return "sample";
+        return "trains";
     }
  
     public @Bean

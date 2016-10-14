@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.xvitcoder.springmvcangularjs.beans.Car;
+import com.xvitcoder.springmvcangularjs.repositories.CarRepository;
 import com.xvitcoder.springmvcangularjs.service.CarService;
 
 /**
@@ -23,28 +25,26 @@ import com.xvitcoder.springmvcangularjs.service.CarService;
 public class CarController {
 
     @Autowired 
-    @Qualifier("carServiceHashImpl")
-//    @Resource(name = "CarServiceHashImpl")
-    private CarService carServiceHashImpl;
+    private CarRepository repository;
 
     @RequestMapping("/carlist.json")
-    public @ResponseBody List<String> getCarList() {
-        return carServiceHashImpl.getAllCars();
+    public @ResponseBody List<Car> getCarList() {
+        return repository.findAll();
     }
 
     @RequestMapping(value = "/addCar/{car}", method = RequestMethod.POST)
-    public @ResponseBody void addCar(@PathVariable("car") String car) {
-        carServiceHashImpl.addCar(car);
+    public @ResponseBody void addCar(@PathVariable("car") Car car) {
+        repository.save(car);
     }
 
     @RequestMapping(value = "/removeCar/{car}", method = RequestMethod.DELETE)
     public @ResponseBody void removeCar(@PathVariable("car") String car) {
-        carServiceHashImpl.deleteCar(car);
+        repository.deleteCarByName(car);
     }
 
     @RequestMapping(value = "/removeAllCars", method = RequestMethod.DELETE)
     public @ResponseBody void removeAllCars() {
-        carServiceHashImpl.deleteAll();
+        repository.deleteAll();
     }
 
     @RequestMapping("/layout")
