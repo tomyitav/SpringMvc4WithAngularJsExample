@@ -7,6 +7,9 @@
     <version>1.1</version>
     <name>AngularSpringApp Maven Webapp</name>
     <url>http://maven.apache.org</url>
+    <properties>
+    	<spring-aop-version>4.2.8.RELEASE</spring-aop-version>
+    </properties>
     <dependencies>
     
     	<!-- Spring Data for MongoDB-->
@@ -21,6 +24,18 @@
             <artifactId>spring-webmvc</artifactId>
             <version>4.2.4.RELEASE</version>
         </dependency>
+        
+        <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>4.2.8.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>4.2.8.RELEASE</version>
+		</dependency>
+    
 
         <dependency>
             <groupId>javax.servlet</groupId>
