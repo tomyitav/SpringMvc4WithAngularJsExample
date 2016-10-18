@@ -11,14 +11,14 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 class ApplicationAspects {
-	@Before("execution(* com.xvitcoder.springmvcangularjs.repositories.TrainRepository.*(..))")
+	@Before("execution(* com.xvitcoder.springmvcangularjs..repositories..*(..))")
 	public void before(JoinPoint joinPoint) {
 		System.out.print("Before ");
 		System.out.print(joinPoint.getSignature().getName() + " called with ");
 		System.out.println(Arrays.toString(joinPoint.getArgs()));
 	}
 
-	@AfterReturning(pointcut = "execution(* com.xvitcoder.springmvcangularjs.repositories.TrainRepository.*(..))", returning = "result")
+	@AfterReturning(pointcut = "execution(* com.xvitcoder.springmvcangularjs..repositories..*(..))", returning = "result")
 	public void after(JoinPoint joinPoint, Object result) {
 		System.out.print("After ");
 		System.out.print(joinPoint.getSignature().getName());
