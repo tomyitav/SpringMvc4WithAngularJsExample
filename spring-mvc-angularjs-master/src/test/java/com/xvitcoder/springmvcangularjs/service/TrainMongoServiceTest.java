@@ -45,7 +45,7 @@ public class TrainMongoServiceTest {
 	}
 
 	@Configuration
-	static class AccountServiceTestContextConfiguration {
+	static class TrainServiceTestContextConfiguration {
 		@Bean
 		public TrainMongoService trainService() {
 			return new TrainMongoService();
