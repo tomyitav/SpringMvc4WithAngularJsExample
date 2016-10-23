@@ -1,5 +1,4 @@
-
-<form class="form-horizontal">
+<form class="form-horizontal" xmlns:orderBy="http://www.w3.org/1999/xhtml">
     <div class="control-group">
         <label class="control-label" for="inputEmail">Car Name</label>
 
@@ -23,14 +22,14 @@
 <table class="table table-bordered table-striped" style="width:450px; margin-left: 100px;" ng-show="cars.length > 0">
     <thead>
         <tr>
-            <th style="text-align: center; width: 25px;">Action</th>
+            <th style="text-align: center; width: 25px;">Id</th>
             <th style="text-align: center;">Car Name</th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="car in cars">
-            <td  style="width:70px;text-align:center;"><button class="btn btn-mini btn-danger" ng-click="removeCar(car)">Remove</button></td>
-            <td>{{car}}</td>
+            <td style="text-align: center;">{{car.id}}</td>
+            <td>{{car.name}}</td>
         </tr>
     </tbody>
 </table>
