@@ -3,12 +3,12 @@ package com.xvitcoder.springmvcangularjs.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.xvitcoder.springmvcangularjs.beans.RailwayStation;
 import com.xvitcoder.springmvcangularjs.repositories.RailwayStationRepository;
 
-@Component("railwayMongoService")
+@Service("railwayMongoService")
 public class RailwayMongoService implements RailwayStationService {
 	
 	@Autowired

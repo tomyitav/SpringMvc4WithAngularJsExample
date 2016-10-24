@@ -3,12 +3,12 @@ package com.xvitcoder.springmvcangularjs.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.xvitcoder.springmvcangularjs.beans.Train;
 import com.xvitcoder.springmvcangularjs.repositories.TrainRepository;
 
-@Component("trainMongoService")
+@Service("trainMongoService")
 public class TrainMongoService implements TrainService{
 
 	@Autowired
