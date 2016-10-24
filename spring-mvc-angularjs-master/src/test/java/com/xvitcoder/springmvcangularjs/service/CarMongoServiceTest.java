@@ -1,6 +1,7 @@
 package com.xvitcoder.springmvcangularjs.service;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,43 +16,45 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.xvitcoder.springmvcangularjs.beans.Car;
 import com.xvitcoder.springmvcangularjs.beans.Train;
+import com.xvitcoder.springmvcangularjs.repositories.CarRepository;
 import com.xvitcoder.springmvcangularjs.repositories.TrainRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
-public class TrainMongoServiceTest {
+public class CarMongoServiceTest {
 
 	@Autowired
-	private TrainService mongoService;
+	private CarService service;
 	@Autowired
-	private TrainRepository trainRepository;
+	private CarRepository repository;
 	
-
 	@Before
 	public void setUp() throws Exception {
-		Train train = new Train("111", "TestTrain", 200, true);
-		List<Train> asList = new ArrayList<Train>();
-		asList.add(train);
-		Mockito.when(trainRepository.findAll()).thenReturn(asList);
+		Car car = new Car("idForTest", "TestCarName");
+		List<Car> asList = new ArrayList<Car>();
+		asList.add(car);
+		Mockito.when(repository.findAll()).thenReturn(asList);
 	}
 
 	@Test
-	public void testGetAllTrains() {
-		List<Train> allTrains = mongoService.getAllTrains();
-		System.out.println(allTrains);
-		assertEquals(1, allTrains.size());
+	public void testGetAllCars() {
+		List<Car> allCars = service.getAllCars();
+		System.out.println(allCars);
+		assertEquals(1, allCars.size());
 	}
 
+	
 	@Configuration
-	static class TrainServiceTestContextConfiguration {
+	static class CarServiceTestContextConfiguration {
 		@Bean
-		public TrainMongoService trainService() {
-			return new TrainMongoService();
+		public CarMongoService trainService() {
+			return new CarMongoService();
 		}
 		@Bean
-		public TrainRepository trainRepository() {
-			return Mockito.mock(TrainRepository.class);
+		public CarRepository trainRepository() {
+			return Mockito.mock(CarRepository.class);
 		}
 	}
 
